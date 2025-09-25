@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard Technologies & Security Services | Mission-Critical Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #BF0A30;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .hero-bg {
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+        
+        /* Chatbot Styles */
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 10px rgba(191,10,48,0.5), 
+                           0 0 20px rgba(191,10,48,0.3);
+            }
+            50% { 
+                box-shadow: 0 0 20px rgba(191,10,48,0.7), 
+                           0 0 30px rgba(191,10,48,0.5);
+            }
+        }
+        
+        .chat-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        .typing-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #6b7280;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Top Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-[#002868]">Vanguard</h1>
+                    <span class="ml-2 text-sm text-gray-600 font-light">Technologies & Security</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#capabilities" class="nav-link text-gray-700 hover:text-[#002868] font-medium transition-colors">Solutions</a>
+                    <a href="#capabilities" class="nav-link text-gray-700 hover:text-[#002868] font-medium transition-colors">Capabilities</a>
+                    <a href="#innovation" class="nav-link text-gray-700 hover:text-[#002868] font-medium transition-colors">Innovation</a>
+                    <a href="#vision" class="nav-link text-gray-700 hover:text-[#002868] font-medium transition-colors">About</a>
+                    <a href="#news" class="nav-link text-gray-700 hover:text-[#002868] font-medium transition-colors">News</a>
+                    <a href="#footer" class="nav-link text-gray-700 hover:text-[#002868] font-medium transition-colors">Contact</a>
+                    <a href="#contact" class="ml-6 bg-[#BF0A30] text-white px-6 py-2.5 font-medium hover:bg-[#9a0826] transition-colors rounded inline-flex items-center justify-center">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-[#002868]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#capabilities" class="block text-gray-700 hover:text-[#002868] font-medium py-2">Solutions</a>
+                <a href="#capabilities" class="block text-gray-700 hover:text-[#002868] font-medium py-2">Capabilities</a>
+                <a href="#innovation" class="block text-gray-700 hover:text-[#002868] font-medium py-2">Innovation</a>
+                <a href="#vision" class="block text-gray-700 hover:text-[#002868] font-medium py-2">About</a>
+                <a href="#news" class="block text-gray-700 hover:text-[#002868] font-medium py-2">News</a>
+                <a href="#footer" class="block text-gray-700 hover:text-[#002868] font-medium py-2">Contact</a>
+                <a href="#contact" class="w-full mt-4 bg-[#BF0A30] text-white px-6 py-2.5 font-medium hover:bg-[#9a0826] transition-colors rounded inline-flex items-center justify-center">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-[#002868]">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div id="hero-slider-bg" class="absolute inset-0 w-full h-full hero-bg transition-all duration-1000"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto flex items-center justify-center h-full">
+            <div>
+                <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-shadow">
+                    Securing Today's Threats with Tomorrow's Solutions.
+                </h1>
+                <p class="text-white/95 text-lg sm:text-xl md:text-2xl font-light mb-8 md:mb-12 max-w-3xl mx-auto text-shadow-sm">
+                    AI-driven cybersecurity for America's vital infrastructure.
+                </p>
+                <a href="#capabilities" class="inline-block bg-transparent border-2 border-white text-white px-8 sm:px-10 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-white hover:text-[#002868] transition-all duration-300 transform hover:scale-105">
+                    Explore Our Solutions
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Future of Security Section -->
+    <section class="py-24 px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#002868] mb-8">The Future of National Security</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                Our comprehensive suite of security solutions combines cutting-edge technology with tactical expertise to deliver unparalleled protection for government and enterprise clients.
+            </p>
+            <a href="#capabilities" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors animate-pulse">
+                <span>Experience Vanguard in Action</span>
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2 py-20 px-12 flex flex-col justify-center">
+                    <p class="text-sm uppercase tracking-wider text-gray-500 mb-2">Vision</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#002868] mb-6">The Art of Excellence<sup>TM</sup></h2>
+                    <p class="text-xl text-gray-600">
+                        We're driven by our endless pursuit of excellence. We boldly anticipate your future needs, elevating security to an art form.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 relative flex items-center justify-center bg-gray-100">
+                    <div class="relative w-full h-full min-h-[400px] md:min-h-[600px] overflow-hidden">
+                        <div class="absolute inset-4 bg-white shadow-lg"></div>
+                        <img src="assets/images/vision.jpg" alt="Engineer Sketching" class="absolute inset-8 w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovation" class="bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row-reverse">
+                <div class="w-full md:w-1/2 py-20 px-12 flex flex-col justify-center">
+                    <p class="text-sm uppercase tracking-wider text-gray-500 mb-2">Innovation</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#002868] mb-6">Investing In You</h2>
+                    <p class="text-xl text-gray-600">
+                        We continuously innovate with cutting-edge security solutions to accelerate your journey to the future.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 relative flex items-center justify-center bg-gray-200">
+                    <div class="relative w-full h-full min-h-[400px] md:min-h-[600px] overflow-hidden">
+                        <div class="absolute inset-4 bg-white shadow-lg"></div>
+                        <img src="assets/images/satcom.jpg" alt="Satellite Telemetry" class="absolute inset-8 w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrity Section -->
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row">
+                <div class="w-full md:w-1/2 py-20 px-12 flex flex-col justify-center">
+                    <p class="text-sm uppercase tracking-wider text-gray-500 mb-2">Integrity</p>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#002868] mb-6">Confirming Our Commitment</h2>
+                    <p class="text-xl text-gray-600">
+                        Our people make the difference. By holding ourselves to the highest standards, we create and deliver the world's finest security experience. We view ourselves as keepers of your trust and stewards of our shared resources.
+                    </p>
+                </div>
+                <div class="w-full md:w-1/2 relative flex items-center justify-center bg-gray-100">
+                    <div class="relative w-full h-full min-h-[400px] md:min-h-[600px] overflow-hidden">
+                        <div class="absolute inset-4 bg-white shadow-lg"></div>
+                        <img src="assets/images/innovation.jpg" alt="Cyber Control Center" class="absolute inset-8 w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="capabilities" class="py-24 px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#002868] mb-8">Our Core Capabilities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive security solutions combining cutting-edge technology with tactical expertise to protect what matters most.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Cybersecurity -->
+                <div class="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-[#BF0A30] mb-6 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#002868] mb-4">Advanced Cybersecurity</h3>
+                    <p class="text-gray-600 mb-6">
+                        Enterprise-grade protection against sophisticated cyber threats with 24/7 monitoring, incident response, and threat intelligence.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 2: AI Intelligence -->
+                <div class="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-[#BF0A30] mb-6 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#002868] mb-4">AI-Powered Intelligence</h3>
+                    <p class="text-gray-600 mb-6">
+                        Machine learning solutions for predictive analytics, automated threat detection, and intelligent decision support systems.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 3: Cloud Operations -->
+                <div class="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-[#BF0A30] mb-6 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#002868] mb-4">Cloud Infrastructure</h3>
+                    <p class="text-gray-600 mb-6">
+                        Secure cloud architecture design, migration services, and continuous optimization for maximum performance and reliability.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 4: Private Security -->
+                <div class="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-[#BF0A30] mb-6 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#002868] mb-4">Private Security</h3>
+                    <p class="text-gray-600 mb-6">
+                        Elite security personnel, access control systems, and comprehensive threat assessment for facilities and VIP protection.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 5: Risk Management -->
+                <div class="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-[#BF0A30] mb-6 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#002868] mb-4">Risk Management</h3>
+                    <p class="text-gray-600 mb-6">
+                        Comprehensive risk assessment, compliance management, and strategic consulting to protect your organization's assets.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 6: Emergency Response -->
+                <div class="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="w-12 h-12 bg-[#BF0A30] mb-6 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#002868] mb-4">Emergency Response</h3>
+                    <p class="text-gray-600 mb-6">
+                        24/7 incident response teams, crisis management, and disaster recovery planning to ensure business continuity.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-[#BF0A30] font-medium hover:text-[#9a0826] transition-colors">
+                        <span>Learn More</span>
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-24 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-[#002868] mb-12 text-center">News & Insights</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <figure class="h-48 overflow-hidden">
+                        <img src="assets/images/Hero-2.jpg" alt="Vanguard Federal Contract - Military Aircraft" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </figure>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <time datetime="2025-09-24">September 24, 2025</time>
+                            <span class="mx-2">•</span>
+                            <span>Press Release</span>
+                            <span class="mx-2">•</span>
+                            <span>By Thomas Gaye, VP of DevOps, Vanguard Technologies &amp; Security Services</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#002868] mb-2">Vanguard Showcases Next-Gen Federal Cybersecurity Platform</h3>
+                        <p class="text-gray-600 mb-4">Vanguard Technologies &amp; Security Services is advancing cybersecurity for mission-critical federal environments with its AI-powered defense systems.</p>
+                        <button onclick="toggleArticle('article1')" class="text-[#BF0A30] font-medium hover:text-[#9a0826] inline-flex items-center">
+                            <span id="article1-btn-text">Read More</span>
+                            <svg class="w-4 h-4 ml-1 transform transition-transform" id="article1-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                        <div id="article1" class="hidden mt-4 pt-4 border-t border-gray-200">
+                            <div class="prose prose-sm text-gray-700">
+                                <p class="mb-3">
+                                    At the core of our innovation is Sentinel Systems, which fuses real-time threat detection with predictive analytics to help agencies anticipate and neutralize cyberattacks before they escalate. Built with quantum-resistant protocols and proprietary Animation Wave AI, Sentinel is engineered to address tomorrow's threats today.
+                                </p>
+                                <p class="mb-3">
+                                    Our Fusion Security Operations Center (FSOC) framework delivers continuous monitoring and rapid incident response—integrating autonomous AI defense with expert human oversight to ensure resilience, speed, and reliability.
+                                </p>
+                                <p class="mb-3">
+                                    Vanguard's platform is designed for scalability across federal data centers, communications hubs, and research installations, aligning with the government's push toward zero-trust architectures and advanced cyber readiness.
+                                </p>
+                                <p>
+                                    As federal agencies evaluate next-generation security solutions, Vanguard is positioned to support the future of secure government operations with systems built for defense-grade reliability and strategic innovation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <figure class="h-48 overflow-hidden">
+                        <img src="assets/images/innovation.jpg" alt="AI Innovation in Defense Technology" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </figure>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <time datetime="2025-09-24">September 24, 2025</time>
+                            <span class="mx-2">•</span>
+                            <span>Technology Update</span>
+                            <span class="mx-2">•</span>
+                            <span>By Thomas Gaye, VP of DevOps</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#002868] mb-2">AI &amp; Cloud Innovation in Defense</h3>
+                        <p class="text-gray-600 mb-4">Vanguard Technologies &amp; Security Services is advancing cybersecurity with two flagship platforms engineered for mission-critical environments: Sentinel AI and the Vanguard Cloud Security Platform.</p>
+                        <button onclick="toggleArticle('article2')" class="text-[#BF0A30] font-medium hover:text-[#9a0826] inline-flex items-center">
+                            <span id="article2-btn-text">Read More</span>
+                            <svg class="w-4 h-4 ml-1 transform transition-transform" id="article2-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                        <div id="article2" class="hidden mt-4 pt-4 border-t border-gray-200">
+                            <div class="prose prose-sm text-gray-700">
+                                <p class="mb-3">
+                                    Sentinel AI leverages advanced neural networks trained on millions of attack signatures and behavioral patterns to deliver real-time threat detection with industry-leading accuracy. Capable of identifying zero-day vulnerabilities and anomalous activity, Sentinel AI enables organizations to anticipate and neutralize threats before they compromise critical systems. This proactive defense reduces false positives, accelerates incident response, and strengthens operational continuity.
+                                </p>
+                                <p class="mb-3">
+                                    Complementing this, the Cloud Security Platform provides robust protection for multi-cloud and hybrid infrastructures. Featuring zero-trust architecture, micro-segmentation, and automated compliance enforcement, the platform secures workloads, reduces attack surfaces, and ensures adherence to federal and industry security standards—without slowing down operations.
+                                </p>
+                                <p>
+                                    Together, Sentinel AI and the Cloud Security Platform embody Vanguard's commitment to delivering AI-driven, defense-grade cybersecurity solutions that help organizations stay ahead of evolving threats while securing the future of digital operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                    <figure class="h-48 overflow-hidden">
+                        <img src="assets/images/satcom.jpg" alt="Cloud Security Infrastructure" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+                    </figure>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <time datetime="2025-09-24">September 24, 2025</time>
+                            <span class="mx-2">•</span>
+                            <span>Industry Insights</span>
+                            <span class="mx-2">•</span>
+                            <span>By Lemuel Hatcher, President of Cybersecurity</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#002868] mb-2">Cloud Security Best Practices</h3>
+                        <p class="text-gray-600 mb-4">Vanguard's Cloud Security Platform is designed to safeguard multi-cloud environments with a defense-in-depth approach that combines zero-trust architecture, micro-segmentation, encryption, and automated compliance enforcement. Built for flexibility and scalability, it enables organizations to secure workloads across AWS, Azure, and Google Cloud Platform with consistent protection.</p>
+                        <button onclick="toggleArticle('article3')" class="text-[#BF0A30] font-medium hover:text-[#9a0826] inline-flex items-center">
+                            <span id="article3-btn-text">Read More</span>
+                            <svg class="w-4 h-4 ml-1 transform transition-transform" id="article3-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                        <div id="article3" class="hidden mt-4 pt-4 border-t border-gray-200">
+                            <div class="prose prose-sm text-gray-700">
+                                <p class="mb-3">
+                                    The platform integrates identity and access management with multi-factor authentication and least privilege principles, reducing risk while ensuring compliance with federal and industry standards. Real-time monitoring and automated policy checks further strengthen resilience against advanced threats.
+                                </p>
+                                <p class="mb-3">
+                                    Beyond technology, Vanguard emphasizes that effective cloud security requires a cultural commitment to cyber readiness. Regular training, simulated breach exercises, and continuous improvement are essential to maintaining a strong security posture.
+                                </p>
+                                <p>
+                                    With its combination of advanced tools and operational best practices, Vanguard's Cloud Security Platform helps organizations defend critical assets, accelerate compliance, and maximize the potential of cloud transformation.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 px-6 lg:px-8 bg-[#002868]">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Schedule Your Private Consultation</h2>
+            <p class="text-xl text-white/80 mb-12">
+                Discover how Vanguard's advanced security solutions can protect your mission-critical assets.
+            </p>
+            <a href="mailto:info@vanguardtechllc.com" class="bg-white text-[#002868] px-10 py-4 text-lg font-medium hover:bg-gray-100 transition-colors inline-block">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-900 text-white py-12 px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Vanguard</h3>
+                    <p class="text-gray-400">Technologies & Security Services</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#capabilities" class="hover:text-white transition-colors">Cybersecurity</a></li>
+                        <li><a href="#capabilities" class="hover:text-white transition-colors">AI Systems</a></li>
+                        <li><a href="#capabilities" class="hover:text-white transition-colors">Cloud Operations</a></li>
+                        <li><a href="#capabilities" class="hover:text-white transition-colors">Private Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#vision" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#capabilities" class="hover:text-white transition-colors">Capabilities</a></li>
+                        <li><a href="#news" class="hover:text-white transition-colors">News</a></li>
+                        <li><a href="#innovation" class="hover:text-white transition-colors">Innovation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <p class="text-gray-400 mb-2">info@vanguardtechllc.com</p>
+                    <p class="text-gray-400 mb-4">888-248-0444</p>
+                    <h4 class="font-semibold mb-2">Mailing Address</h4>
+                    <p class="text-gray-400">7901 4th St N Ste 300<br>St. Petersburg, FL 33702 US</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Vanguard Technologies & Security Services LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AGI Expert Chatbot -->
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+        <!-- Chat Button -->
+        <button id="chatbot-toggle" class="bg-[#BF0A30] text-white p-4 rounded-full shadow-lg hover:bg-[#9a0826] transition-all duration-300 transform hover:scale-110 chat-glow">
+            <svg id="chat-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-96 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-[#002868] to-[#003a8c] text-white p-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Vanguard AGI Expert</h3>
+                            <p class="text-xs text-white/80">Advanced Security Intelligence</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-xs">Online</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div id="chat-messages" class="h-96 overflow-y-auto p-4 bg-gray-50">
+                <!-- Welcome Message -->
+                <div class="mb-4">
+                    <div class="flex items-start space-x-2">
+                        <div class="w-8 h-8 bg-[#002868] rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm max-w-[80%]">
+                            <p class="text-sm text-gray-800">Hello! I'm your Vanguard AGI Expert, powered by advanced artificial general intelligence.</p>
+                            <p class="text-sm text-gray-800 mt-2">I can help you understand our cutting-edge security solutions, answer technical questions, and guide you through our capabilities. How can I assist you today?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 border-t border-gray-200 bg-white">
+                <div class="flex space-x-2">
+                    <input 
+                        type="text" 
+                        id="chat-input" 
+                        placeholder="Ask me anything about our solutions..."
+                        class="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#002868] focus:border-transparent"
+                    >
+                    <button id="send-button" class="bg-[#002868] text-white p-2 rounded-full hover:bg-[#001a3d] transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </button>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 text-center">Powered by Vanguard AGI • Enterprise-Grade Intelligence</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Hero background slider
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroImages = [
+                { src: 'assets/images/Hero-1.jpg', name: 'Hangar Power' },
+                { src: 'assets/images/Hero-2.jpg', name: 'Dawn Patrol' },
+                { src: 'assets/images/Hero-3.jpg', name: 'Strike Precision' }
+            ];
+            
+            let currentHero = 0;
+            const heroBg = document.getElementById('hero-slider-bg');
+            
+            function setHeroBg(idx) {
+                heroBg.style.backgroundImage = `url('${heroImages[idx].src}')`;
+            }
+            
+            // Initialize first image
+            setHeroBg(currentHero);
+            
+            // Change image every 5 seconds
+            setInterval(() => {
+                currentHero = (currentHero + 1) % heroImages.length;
+                setHeroBg(currentHero);
+            }, 5000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+
+        // News Article Toggle Function
+        function toggleArticle(articleId) {
+            const article = document.getElementById(articleId);
+            const btnText = document.getElementById(articleId + '-btn-text');
+            const arrow = document.getElementById(articleId + '-arrow');
+            
+            if (article.classList.contains('hidden')) {
+                article.classList.remove('hidden');
+                btnText.textContent = 'Read Less';
+                arrow.style.transform = 'rotate(90deg)';
+            } else {
+                article.classList.add('hidden');
+                btnText.textContent = 'Read More';
+                arrow.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // AGI Expert Chatbot Functionality
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatIcon = document.getElementById('chat-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('send-button');
+        const chatMessages = document.getElementById('chat-messages');
+
+        let isOpen = false;
+        let conversationHistory = [];
+        let currentContext = '';
+
+        // Toggle chatbot window
+        chatbotToggle.addEventListener('click', () => {
+            toggleChat();
+        });
+
+        function toggleChat() {
+            isOpen = !isOpen;
+            if (isOpen) {
+                chatbotWindow.classList.remove('hidden');
+                chatIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                chatInput.focus();
+            } else {
+                chatbotWindow.classList.add('hidden');
+                chatIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        // Function to open chat with specific context
+        function openChatWithContext(context) {
+            currentContext = context;
+            isOpen = true;
+            chatbotWindow.classList.remove('hidden');
+            chatIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+            chatInput.focus();
+            
+            // Add context-specific welcome message
+            let contextMessage = '';
+            switch(context) {
+                case 'cybersecurity':
+                    contextMessage = "I see you're interested in our Advanced Cybersecurity solutions. We offer enterprise-grade protection with 24/7 monitoring, AI-driven threat detection, and quantum-resistant protocols. What specific security challenges are you facing?";
+                    break;
+                case 'ai-intelligence':
+                    contextMessage = "You're exploring our AI-Powered Intelligence platform. Our machine learning solutions provide predictive analytics with 99.9% accuracy and automated threat detection. How can AI transform your security posture?";
+                    break;
+                case 'cloud-infrastructure':
+                    contextMessage = "Great choice! Our Cloud Infrastructure security covers multi-cloud environments with zero-trust architecture and automated compliance. What cloud platforms are you currently using?";
+                    break;
+                case 'private-security':
+                    contextMessage = "You're interested in our Private Security services. We provide elite personnel, biometric access control, and comprehensive threat assessments. What type of facility or asset protection do you need?";
+                    break;
+                case 'risk-management':
+                    contextMessage = "Welcome to Risk Management consultation. We offer comprehensive vulnerability assessments, compliance audits, and strategic security planning. What are your primary risk concerns?";
+                    break;
+                case 'emergency-response':
+                    contextMessage = "You're exploring our Emergency Response capabilities. Our 24/7 teams can deploy within hours for any security incident. What type of emergency preparedness are you looking for?";
+                    break;
+                case 'get-started':
+                    contextMessage = "Welcome! I'm here to help you get started with Vanguard's advanced security solutions. Whether you need cybersecurity, AI intelligence, cloud protection, or physical security, I can guide you to the right solution. What brings you here today?";
+                    break;
+            }
+            
+            if (contextMessage) {
+                setTimeout(() => {
+                    addMessage(contextMessage, false);
+                }, 500);
+            }
+        }
+
+        // Add message to chat
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'mb-4';
+            
+            if (isUser) {
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-2 justify-end">
+                        <div class="bg-[#002868] text-white p-3 rounded-lg shadow-sm max-w-[80%]">
+                            <p class="text-sm">${content}</p>
+                        </div>
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-2">
+                        <div class="w-8 h-8 bg-[#002868] rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm max-w-[80%]">
+                            <p class="text-sm text-gray-800">${content}</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.id = 'typing-indicator';
+            typingDiv.className = 'mb-4';
+            typingDiv.innerHTML = `
+                <div class="flex items-start space-x-2">
+                    <div class="w-8 h-8 bg-[#002868] rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                        <div class="flex space-x-1">
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Remove typing indicator
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Simulate AGI response
+        function getAGIResponse(message) {
+            const responses = {
+                security: "Our security solutions leverage advanced AI and machine learning to provide predictive threat detection, automated response, and continuous monitoring. We offer both cloud-based and on-premises deployments tailored to your specific needs.",
+                pricing: "Our pricing is customized based on your organization's specific requirements. I can schedule a consultation with our security architects to provide a detailed quote. Would you like me to arrange that?",
+                demo: "I'd be happy to arrange a demonstration of our platform. Our team can show you real-world scenarios and how our AI responds to various threat vectors. When would be a good time for you?",
+                compliance: "We maintain compliance with all major standards including SOC 2, ISO 27001, NIST, and FedRAMP. Our platform includes automated compliance reporting and audit trails.",
+                default: "That's an excellent question. Our AGI-powered security platform can address that through multiple approaches. Would you like to discuss specific technical details or schedule a consultation with our experts?"
+            };
+
+            const lowerMessage = message.toLowerCase();
+            if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+                return responses.pricing;
+            } else if (lowerMessage.includes('demo') || lowerMessage.includes('trial')) {
+                return responses.demo;
+            } else if (lowerMessage.includes('compliance') || lowerMessage.includes('regulation')) {
+                return responses.compliance;
+            } else if (lowerMessage.includes('security') || lowerMessage.includes('threat')) {
+                return responses.security;
+            } else {
+                return responses.default;
+            }
+        }
+
+        // Handle message send
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, true);
+            chatInput.value = '';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Simulate response delay
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getAGIResponse(message);
+                addMessage(response);
+            }, 1500);
+        }
+
+        // Handle input events
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        sendButton.addEventListener('click', sendMessage);
+
+        // Update all "Learn More" buttons to open chatbot
+        document.querySelectorAll('a[href="#contact"]').forEach(link => {
+            if (link.textContent.includes('Learn More')) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = link.closest('.bg-white');
+                    const title = card.querySelector('h3').textContent;
+                    let context = '';
+                    if (title.includes('Cybersecurity')) context = 'cybersecurity';
+                    else if (title.includes('AI')) context = 'ai-intelligence';
+                    else if (title.includes('Cloud')) context = 'cloud-infrastructure';
+                    else if (title.includes('Private')) context = 'private-security';
+                    else if (title.includes('Risk')) context = 'risk-management';
+                    else if (title.includes('Emergency')) context = 'emergency-response';
+                    
+                    openChatWithContext(context);
+                });
+            } else if (link.textContent.includes('Get Started')) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openChatWithContext('get-started');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
